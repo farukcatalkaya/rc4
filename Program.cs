@@ -12,12 +12,17 @@ namespace rc4
             //text from wikipedia
             str = "Wired Equivalent Privacy (WEP) is a security algorithm for IEEE 802.11 wireless networks. Introduced as part of the original 802.11 standard ratified in 1997, its intention was to provide data confidentiality comparable to that of a traditional wired network.[1] WEP, recognizable by its key of 10 or 26 hexadecimal digits (40 or 104 bits), was at one time widely in use and was often the first security choice presented to users by router configuration tools";
             string key = "key!!'!'^";
-            //test with a 
+            
+            
+            //test with  string from wikipedia encryption + decryption
+            //convert string to byte[] 
+            //Encryption
             byte[] res = Rc4(Encoding.ASCII.GetBytes(str),Encoding.ASCII.GetBytes(key));
             string result = Encoding.ASCII.GetString(res);
             Console.WriteLine(result);
             Console.WriteLine("-----");
 
+            //My Output :
             /*
                 ???8T??sh?mB???
                 ???,???MC??[?NDK???\K??b?IK???-r{$MT??I??3?`?Yf?KgJT???`??\?NY???R???????K?e@/G????O?????
@@ -27,55 +32,18 @@ namespace rc4
             */
 
 
-            //decrypt
+            //decryption
             byte[] decRes = Rc4(res,Encoding.ASCII.GetBytes(key));
             string decResult = Encoding.ASCII.GetString(decRes);
             Console.WriteLine(decResult);
 
+            //My Output :
             /*
                     Wired Equivalent Privacy (WEP) is a security algorithm for IEEE 802.11 wireless networks. Introduced as part of the original 802.11 standard ratified in 1997, its intention was to provide data confidentiality comparable to that of a traditional wired network.[1] WEP, recognizable by its key of 10 or 26 hexadecimal digits (40 or 104 bits), was at one time widely in use and was often the first security choice presented to users by router configuration tools
             */
 
             Console.ReadLine();
         }
-
-        public static byte[] Encrypt(byte[] pwd, byte[] data) {
-            int a, i, j, k, tmp;
-            int[] key, box;
-            byte[] cipher;
-
-            key = new int[256];
-            box = new int[256];
-            cipher = new byte[data.Length];
-
-            for (i = 0; i < 256; i++) {
-                key[i] = pwd[i % pwd.Length];
-                box[i] = i;
-            }
-            for (j = i = 0; i < 256; i++) {
-                j = (j + box[i] + key[i]) % 256;
-                tmp = box[i];
-                box[i] = box[j];
-                box[j] = tmp;
-            }
-            for (a = j = i = 0; i < data.Length; i++) {
-                a++;
-                a %= 256;
-                j += box[a];
-                j %= 256;
-                tmp = box[a];
-                box[a] = box[j];
-                box[j] = tmp;
-                k = box[((box[a] + box[j]) % 256)];
-                cipher[i] = (byte)(data[i] ^ k);
-            }
-            return cipher;
-        }
-
-        public static byte[] Decrypt(byte[] pwd, byte[] data) {
-            return Encrypt(pwd, data);
-        }
-
 
         //Rc4 method is used for both encrytion and decryption
         //if the inputs are plaintext + key => result equals cipher
@@ -98,6 +66,7 @@ namespace rc4
                 keyArr[i] = key[i % key.Length];
             }
             //Step2 KSA = Key Scheduling Algorithm
+            //KSA  mixed the array with the help of key
             j=0;
             for (i = 0; i < 256; i++) 
             {
@@ -109,6 +78,8 @@ namespace rc4
             }   
 
             //Step3 PRGA = Pseudo Random Generation Algorithm
+            //PRGA helps to create keystream
+            //then with XOR operation gain the result
             int k = 0;
             i=0;
             j=0;
