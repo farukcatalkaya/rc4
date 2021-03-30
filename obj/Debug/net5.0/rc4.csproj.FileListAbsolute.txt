@@ -1,0 +1,16 @@
+/home/faruk/frk/private/rc4/bin/Debug/net5.0/rc4
+/home/faruk/frk/private/rc4/bin/Debug/net5.0/rc4.deps.json
+/home/faruk/frk/private/rc4/bin/Debug/net5.0/rc4.runtimeconfig.json
+/home/faruk/frk/private/rc4/bin/Debug/net5.0/rc4.runtimeconfig.dev.json
+/home/faruk/frk/private/rc4/bin/Debug/net5.0/rc4.dll
+/home/faruk/frk/private/rc4/bin/Debug/net5.0/ref/rc4.dll
+/home/faruk/frk/private/rc4/bin/Debug/net5.0/rc4.pdb
+/home/faruk/frk/private/rc4/obj/Debug/net5.0/rc4.csprojAssemblyReference.cache
+/home/faruk/frk/private/rc4/obj/Debug/net5.0/rc4.GeneratedMSBuildEditorConfig.editorconfig
+/home/faruk/frk/private/rc4/obj/Debug/net5.0/rc4.AssemblyInfoInputs.cache
+/home/faruk/frk/private/rc4/obj/Debug/net5.0/rc4.AssemblyInfo.cs
+/home/faruk/frk/private/rc4/obj/Debug/net5.0/rc4.csproj.CoreCompileInputs.cache
+/home/faruk/frk/private/rc4/obj/Debug/net5.0/rc4.dll
+/home/faruk/frk/private/rc4/obj/Debug/net5.0/ref/rc4.dll
+/home/faruk/frk/private/rc4/obj/Debug/net5.0/rc4.pdb
+/home/faruk/frk/private/rc4/obj/Debug/net5.0/rc4.genruntimeconfig.cache
